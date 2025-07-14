@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Map Viewer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    https://unpkg.com/leaflet/dist/leaflet.css
+
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    https://unpkg.com/leaflet/dist/leaflet.js
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([1.307457772,103.840858347], 20); // Default view
+//1.307457772,103.840858347
+        // Add a tile layer using the custom URL
+        var tileLayer = L.tileLayer('https://awsdev1.fulcrumhq.build/maps/?z={z}&x={x}&y={y}', {
+            tileSize: 256,
+            maxZoom: 22,
+            minZoom: 16,
+            attribution: ''
+        }).addTo(map);
+
+        // Optional: Set view to a specific zoom and coordinates
+        //map.setView([1.3521, 103.8198], 22); // Example: Singapore
+    </script>
+</body>
+</html>
